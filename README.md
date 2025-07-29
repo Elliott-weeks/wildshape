@@ -12,4 +12,4 @@
 ## Installation
 
 ```bash
-go get github.com/yourusername/wildshape
+go get github.com/Elliott-weeks/wildshape

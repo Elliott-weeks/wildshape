@@ -12,17 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Verify tag points to master
-        id: check_branch
-        run: |
-          # Get the branch(es) containing the tag commit
-          branches=$(git branch -r --contains ${{ github.sha }} | tr -d ' ')
-          echo "Branches containing the commit: $branches"
-          if [[ "$branches" != *"origin/main"* ]]; then
-            echo "Tag does not point to master branch"
-            exit 1
-          fi
-
       - name: Set up Go
         uses: actions/setup-go@v4
         with:

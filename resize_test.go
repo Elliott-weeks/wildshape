@@ -52,11 +52,12 @@ func TestResizeNearestNeighbor(t *testing.T) {
 
 func TestResizeUnknownMethod(t *testing.T) {
 	src := image.NewNRGBA(image.Rect(0, 0, 2, 2))
-	dst := ws.Resize(src, 4, 4, ws.ReSampleMethod(99))
-
-	if !dst.Bounds().Empty() {
-		t.Errorf("expected empty image, got %v", dst.Bounds())
-	}
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("expected panic for unknown resample method, but got none")
+		}
+	}()
+	_ = ws.Resize(src, 4, 4, ws.ReSampleMethod(99))
 }
 
 // Helper: Compare colors ignoring type differences (e.g. RGBA vs NRGBA)

@@ -9,6 +9,9 @@
 - Extensible for more algorithms like Bilinear, Bicubic, etc.
 - Easy-to-use API with minimal dependencies
 
+## Coming soon
+More resampling algorithms like Bilnear, Bicubic and Lanczos.
+
 ## Installation
 
 ```bash
